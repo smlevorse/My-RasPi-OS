@@ -15,7 +15,7 @@ SetGpioFunction:
 		cmpls pinFunc,#7
 		movhi pc,lr
 
-		push{lr}
+		push {lr}
 		mov r2,pinNum
 		.unreq pinNum
 		pinNum .req r2
@@ -34,6 +34,7 @@ SetGpioFunction:
 		mask .req r3
 		mov mask,#7
 		lsl mask,pinNum
+		.unreq pinNum
 		mvn mask,mask
 		oldFunc .req r2
 		ldr oldFunc,[gpioAddr]
@@ -80,4 +81,4 @@ SetGpio:
 		strne setBit,[gpioAddr,#28]
 		.unreq setBit
 		.unreq gpioAddr
-		pop{pc}
+		pop {pc}

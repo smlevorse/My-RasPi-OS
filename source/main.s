@@ -16,7 +16,7 @@ bl SetGpioFunction
 .unreq pinNum
 .unreq pinFunc
 
-loop$
+loop$:
 
 pinNum .req r0
 pinVal .req r1
@@ -26,7 +26,7 @@ bl SetGpio
 .unreq pinNum
 .unreq pinVal
 
-.decr .req r0
+decr .req r0
 mov decr,#0x3F0000
 wait1$:
 	sub decr,#1
@@ -36,13 +36,13 @@ wait1$:
 
 pinNum .req r0
 pinVal .req r1
-mov pinNum #16
+mov pinNum,#16
 mov pinVal,#1
 bl SetGpio
 .unreq pinNum
 .unreq pinVal
 
-.decr .req r0
+decr .req r0
 mov decr,#0x3F0000
 wait2$:
 	sub decr,#1
